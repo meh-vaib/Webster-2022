@@ -6,6 +6,10 @@ path('', views.index, name="ShopHome"),
 path("about/", views.about, name="AboutUs"),
 path("contact/", views.contact, name="ContactUs"),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+path("tracker/", views.tracker, name="TrackingStatus"),
+>>>>>>> Stashed changes
+=======
 path("tracker/", views.tracker, name="TrackingStatus"),
 >>>>>>> Stashed changes
 path("search/", views.search, name="Search"),
