@@ -560,11 +560,12 @@ a:hover {
   Welcome Styling
   ================================================== */
 .welcome {
-  color: #fff;
+  color: rgb(224, 79, 0);
   height: 490px;
   overflow: hidden;
   padding-top: 85px;
-  background: url("../img/parallax-bg.jpg") center top no-repeat;
+  background-color: rgb(17,17,17);
+  /* background: url("../img/parallax-bg.jpg") center top no-repeat; */
 }
 
 .welcome h2 {
@@ -577,12 +578,16 @@ a:hover {
   margin-bottom: 45px;
 }
 
+/* ==================================================
+  Carousel Styling
+  ================================================== */
+
 #slider{
   position:relative;
   width: 500px;
-  height: 265px;
+  height: 350px;
   overflow:hidden;
-  box-shadow:0 0 30px rgba(0,0,0,0.3);
+  box-shadow:0 0 30px rgba(17,17,17,0.3);
 }
 
 #slider ul {
@@ -601,6 +606,38 @@ a:hover {
   height: 100%;
 
   float: left;
+}
+
+#slider ul li img{
+  width: 500px;
+  height: 350px;
+}
+
+#slider #prev, #slider #next {
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%);
+  transition: all 150ms ease;
+}
+
+#slider #prev {
+  left: 10px;
+}
+#slider #next {
+  right: 10px;
+}
+
+#slider #prev:hover, #slider #next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0;
 }
 
 /* ==================================================
@@ -1139,3 +1176,6 @@ a:hover {
   background-color: #111111;
 }
 
+/* ==================================================
+  Carousel Styling
+  ================================================== */
