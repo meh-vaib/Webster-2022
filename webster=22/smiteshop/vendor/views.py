@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -50,3 +51,8 @@ def vendor_admin(request):
 #         form = ProductForm()
     
 #     return render(request, 'vendor/add_product.html', {'form': form})
+=======
+from django.shortcuts import render,HttpResponse
+def become_vendor(request):
+    return HttpResponse("Hello")
+>>>>>>> Stashed changes
