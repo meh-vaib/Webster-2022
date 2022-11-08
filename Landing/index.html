@@ -13,12 +13,13 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
 
   <link href="assets/css/style.css" rel="stylesheet">
+  
 </head>
 
 <body class="main">
@@ -146,7 +147,7 @@
     <!-- ======= Welcome Section ======= -->
     <section class="welcome text-center">
       <!-- <h2>Offers You Can't Resist!</h2><br><br> -->
-      <div class="container" id="slider">
+      <!-- <div class="container" id="slider">
         <ul id="slideWrap">
           <li><img src="assets/img/img1.jpg" alt=""></li>
           <li><img src="assets/img/img2.jpg" alt=""></li>
@@ -155,6 +156,17 @@
         </ul>
         <a id="prev" style="cursor:pointer;">&#8810;</a>
         <a id="next" style="cursor:pointer;">&#8811;</a>
+      </div> -->
+      <div class="main-carousel" style="overflow: hidden;" data-flickity='{ "cellAlign": "left", "contain": true, "autoPlay": true }'>
+        
+          <div class="carousel-cell"><img class="image" src="assets/img/img4.jpg"></div>
+          <div class="carousel-cell"><img class="image" src="assets/img/img4.jpg"></div>
+          <div class="carousel-cell"><img class="image" src="assets/img/img4.jpg"></div>
+          
+          <div class="carousel-cell"><img class="image" src="assets/img/img4.jpg"></div>
+          <div class="carousel-cell"><img class="image" src="assets/img/img4.jpg"></div>
+          <div class="carousel-cell"><img class="image" src="assets/img/img4.jpg"></div>
+       
       </div>
     </section>
     <br><br>
@@ -607,6 +619,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>

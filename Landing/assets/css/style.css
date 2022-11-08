@@ -582,6 +582,13 @@ a:hover {
   Carousel Styling
   ================================================== */
 
+.image{
+  max-width: 500px;;
+  max-height: 500px;
+  padding:10px;
+  border-radius: 20px;
+}
+  
 #slider{
   position:relative;
   width: 500px;
