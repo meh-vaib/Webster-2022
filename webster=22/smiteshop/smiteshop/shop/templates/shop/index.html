@@ -1,0 +1,764 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Smit 'em</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/prostyle.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}"/>
+  <!-- <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet"> -->
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+  
+</head>
+
+<body class="main">
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero">
+    <div class="container text-center">
+      <div class="row">
+        <!-- <div class="col-md-12">
+          <a class="hero-brand" href="index.html" title="Home"><img alt="Bell Logo" src="assets/img/logo.png"></a>
+        </div> -->
+      </div>
+
+      <div class="col-md-12">
+        <h1>
+          Your Smithy Shop at your Doorstep!
+        </h1>
+
+        <p class="tagline">
+          We strive to provide all of your needs directly from the shops at the best price.
+        </p>
+        <a class="btn btn-full scrollto" href="#about">Get Started Now</a>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div id="logo" class="me-auto">
+        <a href="index.html"><img src="{% static 'img/logo-nav.png' %}" alt=""></a>
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h1><a href="#hero">Bell</a></h1>-->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#features">Features</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/anvils/">Anvils</a></li>
+              <li class="dropdown"><a href="#"><span>Hammers</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Cross Pin</a></li>
+                  <li><a href="#">Square Pin</a></li>
+                  <li><a href="#">Round Pin</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Nuts</a></li>
+              <li><a href="#">Chains</a></li>
+              <li><a href="#">Misc</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a style="cursor:pointer;" class="nav-link scrollto" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a></li>
+          <!-- <li>   <a href="{% url 'become_vendor' %}">Become Vendor</a></li> -->
+          <!-- adding a become vendor button here -->
+            <li>{% if request.user.is_authenticated %}
+              <a href="{% url 'vendor_admin' %}">Vendor Admin</a>
+                  {% else %} 
+              <a href="{% url 'become_vendor' %}">Become Vendor</a> 
+                  {% endif %}
+            </li> 
+          <li><div style="padding-left: 5% ;"class="input-group">
+          
+
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="bi bi-search"></i>
+            </span>
+          </div></li>
+            
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+    
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section class="about" id="about">
+
+      
+
+      <div style="color:white ;" class=" text-center">
+        <h2>
+          About Us
+        </h2>
+
+        <p style="color:white ;">
+          We're a startup e-commerce site that allows you to shop through a plethora of shops with the least hassle 
+        </p>
+
+        <div class="row stats-row">
+          <div class="stats-col text-center col-md-3 col-sm-6">
+            <div class="circle">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter stats-no"></span>
+              Satisfied Customers
+            </div>
+          </div>
+
+          <div class="stats-col text-center col-md-3 col-sm-6">
+            <div class="circle">
+              <span data-purecounter-start="0" data-purecounter-end="79" data-purecounter-duration="1" class="purecounter stats-no"></span>
+              Proposed Warehouses
+            </div>
+          </div>
+
+          <div class="stats-col text-center col-md-3 col-sm-6">
+            <div class="circle">
+              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter stats-no"></span>
+              Products Sold
+            </div>
+          </div>
+
+          <div class="stats-col text-center col-md-3 col-sm-6">
+            <div class="circle">
+              <span data-purecounter-start="0" data-purecounter-end="68" data-purecounter-duration="1" class="purecounter stats-no"></span>
+              Associated Shops
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+    <!-- ======= Welcome Section ======= -->
+    <section class="welcome text-center">
+      <!-- <h2>Offers You Can't Resist!</h2><br><br> -->
+      <!-- <div class="container" id="slider">
+        <ul id="slideWrap">
+          <li><img src="assets/img/img1.jpg" alt=""></li>
+          <li><img src="assets/img/img2.jpg" alt=""></li>
+          <li><img src="assets/img/img3.jpg" alt=""></li>
+          <li><img src="assets/img/img4.jpg" alt=""></li>
+        </ul>
+        <a id="prev" style="cursor:pointer;">&#8810;</a>
+        <a id="next" style="cursor:pointer;">&#8811;</a>
+      </div> -->
+      <div class="main-carousel" style="overflow: hidden;" data-flickity='{ "cellAlign": "left", "contain": true, "autoPlay": true }'>
+        
+          <div class="carousel-cell"><img class="image" src="{% static 'img/img4.jpg' %}"></div>
+          <div class="carousel-cell"><img class="image" src="{% static 'img/img4.jpg' %}"></div>
+          <div class="carousel-cell"><img class="image" src="{% static 'img/img4.jpg' %}"></div>
+          
+          <div class="carousel-cell"><img class="image" src="{% static 'img/img4.jpg' %}"></div>
+          <div class="carousel-cell"><img class="image" src="{% static 'img/img4.jpg' %}"></div>
+          <div class="carousel-cell"><img class="image" src="{% static 'img/img4.jpg' %}"></div>
+       
+      </div>
+    </section>
+    <br><br>
+    <!-- End Welcome Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section class="features" id="features">
+
+      <div class="">
+        <h2 class="text-center">
+          Features
+        </h2>
+
+        <div class="row">
+          <div class="feature-col col-lg-4 col-xs-12">
+            <div class="back card card-block text-center">
+              <div>
+                <div class="feature-icon">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+              </div>
+
+              <div>
+                <h3>
+                ISO Certification
+                </h3>
+
+                <p>
+                  All of our products are quality verified and come with ISO Certification
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-col col-lg-4 col-xs-12">
+            <div class="back card card-block text-center">
+              <div>
+                <div class="feature-icon">
+                  <i class="bi bi-card-checklist"></i>
+                </div>
+              </div>
+
+              <div>
+                <h3>
+                  Quick Delivery
+                </h3>
+
+                <p>
+                  We deliver most products within a period of 5-7 business days 
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class=" feature-col col-lg-4 col-xs-12">
+            <div class="back card card-block text-center">
+              <div>
+                <div class="feature-icon">
+                  <i class="bi bi-box-fill"></i>
+                </div>
+              </div>
+
+              <div>
+                <h3>
+                  Packaging
+                </h3>
+
+                <p>
+                  All the products are packaged accordingly so your items reach you in perfect condition.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Call to Action Section ======= -->
+     <section class="cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 col-sm-12 text-lg-start text-center">
+            <h2>
+              Only for you!
+            </h2>
+
+            <p>
+              <h1>Get 20% flat off on orders above 1000
+              </h1>
+              
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-sm-12 text-lg-right text-center">
+            <a class="btn btn-ghost" href="#">Explore More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Call to Action Section -->
+
+    <!-- ======= WOF Section ======= -->
+    <section style="background-color:aliceblue;" class="WOF" id="WOF">
+
+      <div class=" text-center">
+        <h2>
+          Wall Of Fame
+        </h2>
+
+        <p>
+          Voluptua scripserit per ad, laudem viderer sit ex. Ex alia corrumpit voluptatibus usu, sed unum convenire id. Ut cum nisl moderatius, Per nihil dicant commodo an.
+        </p>
+      </div>
+
+      <div class="WOF-grid">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-1.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-1.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-2.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-2.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-3.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-3.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-4.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-4.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-5.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-5.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-6.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-1.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-7.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-7.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-sm-6 col-xs-12">
+            <div class="card card-block">
+              <a href="{% static 'img/porf-8.jpg' %}" class="WOF-lightbox" data-gallery="portfolioGallery"><img alt="" src="{% static 'img/porf-8.jpg' %}">
+                <div class="WOF-over">
+                  <div>
+                    <h3 class="card-title">
+                      The Dude Rockin'
+                    </h3>
+
+                    <p class="card-text">
+                      Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End WOF Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section class="team" id="team">
+      <div class="">
+        <h2 class="text-center">
+          Meet our Team
+        </h2>
+
+        <div class="row">
+          <div class="col-sm-4 col-xs-6">
+            <div class="card card-block">
+              <a href="#"><img alt="" class="team-img" src="{% static 'img/team-1.jpg' %}">
+                <div class="card-title-wrap">
+                  <span class="card-title">Ishika Agrawal</span> <span class="card-text">Member</span>
+                </div>
+
+                <div class="team-over">
+                  <h4 class="hidden-md-down">
+                    Connect with me
+                  </h4>
+
+                  <nav class="social-nav">
+                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> <a href="#"><i class="bi bi-linkedin"></i></a> <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                  </nav>
+
+                  
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-xs-6">
+            <div class="card card-block">
+              <a href="#"><img alt="" class="team-img" src="{% static 'img/team-2.jpg' %}">
+                <div class="card-title-wrap">
+                  <span class="card-title">Adya Agarwal</span> <span class="card-text">Member</span>
+                </div>
+
+                <div class="team-over">
+                  <h4 class="hidden-md-down">
+                    Connect with me
+                  </h4>
+
+                  <nav class="social-nav">
+                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> <a href="#"><i class="bi bi-linkedin"></i></a> <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                  </nav>
+
+                  
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-xs-6">
+            <div class="card card-block">
+              <a href="#"><img alt="" class="team-img" src="{% static 'img/team-3.jpg' %}">
+                <div class="card-title-wrap">
+                  <span class="card-title">Vaibhav Mehrotra</span> <span class="card-text">Member</span>
+                </div>
+
+                <div class="team-over">
+                  <h4 class="hidden-md-down">
+                    Connect with me
+                  </h4>
+
+                  <nav class="social-nav">
+                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> <a href="#"><i class="bi bi-linkedin"></i></a> <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                  </nav>
+
+                  
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact">
+      <div class="">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="section-title">Contact Us</h2>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-md-4">
+            <div  class="info">
+              <div>
+                <i class="bi bi-geo-alt"></i>
+                <p style="color: white;">MNNIT Teliarganj<br>Prayagraj</p>
+              </div>
+
+              <div>
+                <i class="bi bi-envelope"></i>
+                <p style="color: white;">info@example.com</p>
+              </div>
+
+              <div>
+                <i class="bi bi-phone"></i>
+                <p style="color: white;">+91 0000000000</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <div class="form">
+              <form action="/forms/contact.php"   method="post" role="form" class="php-email-form">{% csrf_token %}
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit" >Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="site-footer">
+    <div class="bottom">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-xs-12 text-lg-start text-center">
+            <p class="copyright-text">
+              &copy; Copyright <strong>Smith 'em</strong>. All Rights Reserved
+            </p>
+            
+          </div>
+
+          <div class="col-lg-6 col-xs-12 text-lg-right text-center">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="index.html">Home</a>
+              </li>
+
+              <li class="list-inline-item">
+                <a href="#about">About Us</a>
+              </li>
+
+              <li class="list-inline-item">
+                <a href="#features">Features</a>
+              </li>
+
+              <li class="list-inline-item">
+                <a href="#portfolio">Wall-Of-Fame</a>
+              </li>
+
+              <li class="list-inline-item">
+                <a href="#team">Team</a>
+              </li>
+
+              <li class="list-inline-item">
+                <a href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}" type="text/JavaScript" ></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}" type="text/JavaScript"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}" type="text/JavaScript"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}" type="text/JavaScript"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}" type="text/JavaScript"></script>
+
+  <!-- ************************Dialog Box********************************** -->
+     
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class=" text-center modal-header">
+            <h5 style="color:black;" class="modal-title" id="exampleModalLabel"> Welcome Back</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" placeholder="Email Address" id="form1Example1" class="form-control" for="form2Example1" />
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" placeholder="Password" id="form1Example2" class="form-control" for="form2Example2" />
+                </div>
+              
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                  <div class="col d-flex justify-content-center">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                      <label style="color:rgb(125, 125, 125)" class="form-check-label" for="form1Example3"> Remember me </label>
+                    </div>
+                  </div>
+              
+                  <div class="col">
+                    <!-- Simple link -->
+                    <a href="#!" style="color:grey;">Forgot password?</a>
+                  </div>
+                </div>
+              
+                <!-- Submit button -->
+                <button type="button" class="btn w-100 btn-primary btn-block mb-4">Sign in</button>
+              
+                <!-- Register buttons -->
+                <div  class="text-center">
+                  <p >Not a member?</p>
+                  <p style="display: flex; justify-content:center;"><a style="color: white;" class="btn w-25" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="#!">Register</a></p>
+                  <p>or sign up with:</p>
+                  <!-- <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-facebook"></i>
+                  </button> -->
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-google"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-twitter"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-facebook"></i>
+                  </button>
+                  <div class="header-social-links d-flex align-items-center">
+                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reset</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+        </div> -->
+        </div>
+    </div>        
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class=" text-center modal-header">
+              <h5 class=" modal-title" id="exampleModalLabel2">Join us!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+      <input type="email" id="form2Example0" placeholder="Username" for="form2Example0" class="form-control" />
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+      <input type="email" id="form2Example1" placeholder="Email Address" for="form2Example1" class="form-control" />
+      </div>
+  
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+      <input type="password" placeholder="Password" id="form2Example2" class="form-control" />
+      </div>
+
+      <!-- Confirm-Password input -->
+      <div class="form-outline mb-4">
+      <input type="password" id="form2Example3" placeholder="Confirm Password" class="form-control" />
+      </div>
+
+      <!-- Register button -->
+      <input type="submit" class="btn w-100 btn-primary btn-block mb-4">
+              </form>
+          </div>
+      </div>
+  </div>
+
+</body>
+
+</html>

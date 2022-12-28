@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <title>Document</title>
+</head> 
+<body>
+{% block content %}
+    <h1 class="title">Login</h1> 
+ <form method="post" actions=".">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <div class="field">
+        <div class="control">
+            <button class="button is-dark is-uppercase">Log in</button>
+        </div>
+    </div> 
+</form> 
+{% endblock %}  
+</body>
+</html> 
