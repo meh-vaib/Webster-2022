@@ -9,4 +9,24 @@
 </head>
 <body>
     <a href="{% url 'logout' %}">Log out</a>
+    <!-- <h2>My Products</h2>
+    <a href="{% url 'add_product' %}">Add product</a>
+    {% if products %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <td>{{product.product_name}}</td>
+                    <td>{{product.price}}</td>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You don't have any products yet!</p>
+    {% endif %} -->
 </body>

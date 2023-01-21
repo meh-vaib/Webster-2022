@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-    <title>Document</title>
+    <title>Add product</title>
 </head> 
 <body>
 
 
 {% block content %}
-    <h1 class="title">Become Vendor</h1> 
- <form method="post" actions=".">
+    <h1 class="title">Add Product</h1> 
+ <form method="post" actions="." enctype="multipart/form-data">
     {% csrf_token %}
 
     {{ form.as_p }}
 
     <div class="field">
         <div class="control">
-            <button >Sign Up</button>
+            <button class="button is-dark is-uppercase">Sign Up</button>
         </div>
     </div> 
 </form> 
@@ -25,5 +25,3 @@
 {% endblock %}  
 </body>
 </html> 
-
-
