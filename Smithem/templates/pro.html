@@ -1,0 +1,42 @@
+<div class="modal fade" id="modal{{n.id}}" tabindex="-1" role="dialog" aria-labelledby="big1label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="pd modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="big1label">{{ n.product_name }}</h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container pics">
+            <!-- Div with section and active -->
+            <div class="section one active"></div>
+
+            <!-- All another div with section -->
+            <div class="section two"></div>
+            <div class="section three"></div>
+            <div class="section four"></div>
+          </div>
+
+          <hr />
+
+          <p>
+            <a class="text" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">What is it about?</a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="format card card-body">{{ n.product_des }}</div>
+         </div>
+          <hr />
+          <p>
+            <a class="text" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">What you say about us!</a>
+          </p>
+          <div class="collapse" id="collapseExample2">
+            <div class="format card card-body">This is the Customer Reviews of the Product</div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="size btn btn-secondary" data-bs-dismiss="modal">Add to Cart</button>
+          <button type="button" class="size btn btn-primary">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>

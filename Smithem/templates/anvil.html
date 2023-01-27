@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Smit 'em</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
+
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <link href="../static/css/prostyle.css" rel="stylesheet" />
+  </head>
+
+  <body class="main">
+    {% include 'header.html' %}
+    <main id="main">
+      <div style="color:white ;" class="text-center">
+        <h1 style="padding:5px;">Anvils<hr /></h1>
+      </div>
+      <!-- ======= Product Section ======= -->
+
+      <section class="about" id="about">
+        <section class="team" id="team">
+          <div class="h-100 d-flex align-items-center justify-content-center container">
+            <div class="row">
+              {% for n in productData %}
+                  <div class="col-lg-3 col-sm-4 col-xs-6">
+                    <div class="card card-block">
+                      <a href="#">
+                        <img alt="" class="team-img" src="../static/img/team-1.jpg" />
+                        <div style="padding-left:2px; padding-right: 2px;" class="text-center card-title-wrap">
+                          <span type="button" style="font-size: 20px; " class="card-title" data-bs-toggle="modal" data-bs-target="#modal{{ n.id }}">{{ n.product_name }}</span>
+                          <span class="card-text">{{ n.product_price }}</span>
+                        </div>
+                        <div class="team-over">
+                          <h4 class="hidden-md-down">
+                            <a style="color: aliceblue;" href="index.html">Buy Now</a><br />
+                            <a style="color: aliceblue;" href="index.html">Add to Cart</a>
+                          </h4>
+                        </div>
+                      </a>
+                    </div>  
+                  </div>
+
+                  <!-- Modal -->
+                   {% include 'pro.html' %} 
+              <!-- Modal -->
+              {% empty %}   
+              <div class="text-center"><h2>Opps... <br> Couldn't find what you were looking for ;(</h2></div>
+              <br><br>
+              {% endfor %}
+              
+            </div>
+          </div>
+          <br><br>
+          <div class=" d-flex justify-content-center">
+          <nav aria-label="...">
+            <ul class="list-inline pagination" >
+              <li class=" list-inline-item page-item ">
+                <a style="color:white; background:rgb(17, 17, 17); border:0;" class=" learn page-link " href="/anvil/?page=1" tabindex="-1" aria-disabled="true">First</a>
+              </li>
+              {% if productData.has_previous %}
+              <li class="page-item ">
+                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{productData.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
+              {% endif %}
+              
+              {% for n in totalpagelist %}
+              <li class="page-item" aria-current="page">
+                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{n}}">{{n}}</a>
+              </li>
+              {% endfor %}
+
+              {% if productData.has_next %}
+              <li class="page-item">
+                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{productData.next_page_number}}">Next</a>
+              </li>
+              {% endif %}
+              <li class="page-item">
+                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{totalpages}}" tabindex="-1" aria-disabled="true">Last</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        </section>
+        {% include 'login.html' %}
+      </section>
+      <!-- End Product Section -->
+    </main>
+    <!-- End #main -->
+
+    {% include 'footer.html' %}
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  </body>
+</html>
+
+{% comment %} <section class="about" id="about"></section> {% endcomment %}

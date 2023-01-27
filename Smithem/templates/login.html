@@ -1,0 +1,110 @@
+<!-- ************************Dialog Box********************************** -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class=" text-center modal-header">
+            <h5 style="color:black;" class="modal-title" id="exampleModalLabel"> Welcome Back</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" placeholder="Email Address" id="form1Example1" class="form-control" for="form2Example1" />
+                </div>
+              
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" placeholder="Password" id="form1Example2" class="form-control" for="form2Example2" />
+                </div>
+              
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                  <div class="col d-flex justify-content-center">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                      <label style="color:rgb(125, 125, 125)" class="form-check-label" for="form1Example3"> Remember me </label>
+                    </div>
+                  </div>
+              
+                  <div class="col">
+                    <!-- Simple link -->
+                    <a href="#!" style="color:grey;">Forgot password?</a>
+                  </div>
+                </div>
+              
+                <!-- Submit button -->
+                <button type="button" class="btn w-100 btn-primary btn-block mb-4">Sign in</button>
+              
+                <!-- Register buttons -->
+                <div  class="text-center">
+                  <p >Not a member?</p>
+                  <p style="justify-content:center;"><a style="color: white;" class="text-center btn w-25" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="#!">Register</a></p>
+                  <p>or sign up with:</p>
+                  <!-- <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-facebook"></i>
+                  </button> -->
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-google"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-twitter"></i>
+                  </button>
+              
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="bi bi-facebook"></i>
+                  </button>
+                  <div class="header-social-links d-flex align-items-center">
+                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Reset</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+        </div> -->
+        </div>
+    </div>        
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class=" text-center modal-header">
+              <h5 class=" modal-title" id="exampleModalLabel2">Join us!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+      <input type="email" id="form2Example0" placeholder="Username" for="form2Example0" class="form-control" />
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+      <input type="email" id="form2Example1" placeholder="Email Address" for="form2Example1" class="form-control" />
+      </div>
+  
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+      <input type="password" placeholder="Password" id="form2Example2" class="form-control" />
+      </div>
+
+      <!-- Confirm-Password input -->
+      <div class="form-outline mb-4">
+      <input type="password" id="form2Example3" placeholder="Confirm Password" class="form-control" />
+      </div>
+
+      <!-- Register button -->
+      <input type="submit" class="btn w-100 btn-primary btn-block mb-4">
+              </form>
+          </div>
+      </div>
+  </div>
