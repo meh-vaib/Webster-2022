@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Smithem import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePage),
@@ -24,5 +25,10 @@ urlpatterns = [
     path('about/',views.About),
     path('features/',views.Features),
     path('contact/',views.Contact),
+    path('sell/',views.Sell),
     path('saveenquiry/',views.saveEnquiry,name="saveenquiry"),
+    path('savepro/',views.savePro,name="savepro"),
 ]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

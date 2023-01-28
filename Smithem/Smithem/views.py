@@ -4,6 +4,7 @@ from product.models import Product
 from django.core.paginator import Paginator
 from contact.models import contact
 
+
 def HomePage(request):
     return render(request,"index.html");
 
@@ -46,4 +47,16 @@ def saveEnquiry(request):
         message=request.POST.get('message')
         en=contact(name=name,email=email,subject=subject,message=message)  
         en.save()  
-    return render(request,"contact.html");      
+    return render(request,"contact.html");    
+
+def Sell(request):
+    return render(request,"sell.html");   
+
+def savePro(request):
+    if request.method=="POST":
+        name=request.POST.get('name')
+        price=request.POST.get('price')
+        des=request.POST.get('des')
+        en=Product(product_name=name,product_price=price,product_des=des)  
+        en.save()  
+    return render(request,"sell.html");
