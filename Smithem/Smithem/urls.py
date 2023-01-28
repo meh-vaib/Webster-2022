@@ -24,4 +24,5 @@ urlpatterns = [
     path('about/',views.About),
     path('features/',views.Features),
     path('contact/',views.Contact),
+    path('saveenquiry/',views.saveEnquiry,name="saveenquiry"),
 ]

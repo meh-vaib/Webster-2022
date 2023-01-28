@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from product.models import Product
 from django.core.paginator import Paginator
+from contact.models import contact
 
 def HomePage(request):
     return render(request,"index.html");
@@ -35,4 +36,14 @@ def Features(request):
     return render(request,"features.html"); 
 
 def Contact(request):
-    return render(request,"contact.html");     
+    return render(request,"contact.html");   
+
+def saveEnquiry(request):
+    if request.method=="POST":
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        subject=request.POST.get('subject')
+        message=request.POST.get('message')
+        en=contact(name=name,email=email,subject=subject,message=message)  
+        en.save()  
+    return render(request,"contact.html");      
