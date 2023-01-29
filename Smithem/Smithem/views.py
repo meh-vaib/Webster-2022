@@ -1,11 +1,21 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from product.models import Product
 from django.core.paginator import Paginator
 from contact.models import contact
+from django.core.mail import send_mail
+from django.contrib import messages
+
 
 
 def HomePage(request):
+    send_mail(
+    'Testing mail',
+    'Here is the message',
+    'smithem2k22@gmail.com',
+    ['smithem2k22@gmail.com'],
+    fail_silently=True,
+    )
     return render(request,"index.html");
 
 def Anvil(request):
@@ -57,6 +67,14 @@ def savePro(request):
         name=request.POST.get('name')
         price=request.POST.get('price')
         des=request.POST.get('des')
-        en=Product(product_name=name,product_price=price,product_des=des)  
-        en.save()  
+    
+        if len(request.FILES) != 0:
+            img=request.FILES['image']
+            en=Product(product_name=name,product_price=price,product_des=des,product_img=img)  
+            en.save()
     return render(request,"sell.html");
+
+  
+
+
+

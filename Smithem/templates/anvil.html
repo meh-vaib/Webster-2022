@@ -34,10 +34,15 @@
           <div class="h-100 d-flex align-items-center justify-content-center container">
             <div class="row">
               {% for n in productData %}
-                  <div class="col-lg-3 col-sm-4 col-xs-6">
+                  <div  class="d-flex align-items-center col-lg-3 col-sm-4 col-xs-6">
                     <div class="card card-block">
                       <a href="#">
-                        <img alt="" class="team-img" src="../static/img/team-1.jpg" />
+                        {% if n.product_img != Null %}
+                        <img alt=""  class=" team-img" src="/media/{{ n.product_img }}" />
+                        {% endif %}
+                        {% if n.product_img == Null %}
+                        <img alt="" class=" team-img"  src="/media/product/sample.jpg" />
+                        {% endif %}
                         <div style="padding-left:2px; padding-right: 2px;" class="text-center card-title-wrap">
                           <span type="button" style="font-size: 20px; " class="card-title" data-bs-toggle="modal" data-bs-target="#modal{{ n.id }}">{{ n.product_name }}</span>
                           <span class="card-text">{{ n.product_price }}</span>

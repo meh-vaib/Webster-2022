@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'product',
     'contact',
+    
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,9 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT=BASE_DIR/"media"
 MEDIA_URL="/media/"
+
+EMAIL_HOST ='smtp.gmail.com'
+EMAIL_PORT =587
+EMAIL_HOST_USER ='smithem2k22@gmail.com'
+EMAIL_HOST_PASSWORD ='gzggxgeccmpquevz'
+EMAIL_USE_TLS =True

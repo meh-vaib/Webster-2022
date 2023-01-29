@@ -28,7 +28,7 @@
 
     <!-- FORM -->
     <div class="d-flex justify-content-center">
-    <form action="{% url 'savepro' %}" method="post" role="form" nonvalidate="nonvalidate" class="w-50" id="sell" style="color:aliceblue;">
+    <form action="{% url 'savepro' %}" method="post" enctype="multipart/form-data" role="form" nonvalidate="nonvalidate" class="w-50" id="sell" style="color:aliceblue;">
         {% csrf_token %}
         <div class="mb-3">
           <label for="productname" class="form-label">Name</label>
@@ -44,6 +44,10 @@
             <label for="productprice" class="form-label">Price</label>
             <input type="text" name="price" class="form-control" id="productprice" aria-describedby="priceHelp" required>
         </div>
+        <div class="mb-3">
+          <label for="productimg" class="form-label">Upload Primary Picture</label>
+          <input type="file" name="image" accept="image/*" class="form-control" id="productprimaryimg" aria-describedby="imgHelp" required>
+      </div>
         <div class="mb-3">
             <label for="productcat" name="cat" class="form-label">Category</label>
             <select class="form-select form-control" id="productcat" aria-describedby="catHelp">
