@@ -1,22 +1,29 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from product.models import Product
+from customer.models import Customer
 from django.core.paginator import Paginator
 from contact.models import contact
 from django.core.mail import send_mail
 from django.contrib import messages
-
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.hashers import make_password, check_password
+from django.views import View
 
 def HomePage(request):
-    send_mail(
-    'Testing mail',
-    'Here is the message',
-    'smithem2k22@gmail.com',
-    ['smithem2k22@gmail.com'],
-    fail_silently=True,
-    )
-    return render(request,"index.html");
+    if request.method=='GET':
+        send_mail(
+        'Testing mail',
+        'Here is the message',
+        'smithem2k22@gmail.com',
+        ['smithem2k22@gmail.com'],
+        fail_silently=True,
+        )
+        return render(request,"index.html")
+    if request.method=="POST":
+        product=request.POST.get('cart')
+        print(product)
+        return redirect('anvil')
 
 def Anvil(request):
     request.method=="GET"
@@ -26,18 +33,18 @@ def Anvil(request):
     page_number=request.GET.get('page')
     productData=paginator.get_page(page_number)
     totalpages=productData.paginator.num_pages
-
+    
     if request.method=="GET":
         st=request.GET.get('product')
     if st!=None:
         productData=Product.objects.filter(product_name__icontains=st)
    
-    
     data={
         'totalpages': totalpages,
         'productData': productData,
         'totalpagelist':[n+1 for n in range(totalpages)]
     }
+    print('you are:' , request.session.get('email'))
     return render(request,"anvil.html",data);    
 
 def About(request):
@@ -72,9 +79,15 @@ def savePro(request):
             img=request.FILES['image']
             en=Product(product_name=name,product_price=price,product_des=des,product_img=img)  
             en.save()
-    return render(request,"sell.html");
+    return render(request,"sell.html")
+    
 
-  
+
+        
+    
+         
+
+
 
 
 

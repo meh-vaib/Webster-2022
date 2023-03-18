@@ -34,8 +34,11 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="size btn btn-secondary" data-bs-dismiss="modal">Add to Cart</button>
-          <button type="button" class="size btn btn-primary">Buy</button>
+          <form action="/" method="POST" name="cart">
+            <input type="text" value="{{Product.id}}">
+            <button type="submit" class="size btn btn-secondary" data-bs-dismiss="modal">Add to Cart</button>
+          </form>
+          <button type="submit" class="size btn btn-primary">Buy</button>
         </div>
       </div>
     </div>

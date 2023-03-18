@@ -50,7 +50,11 @@
                         <div class="team-over">
                           <h4 class="hidden-md-down">
                             <a style="color: aliceblue;" href="index.html">Buy Now</a><br />
-                            <a style="color: aliceblue;" href="index.html">Add to Cart</a>
+                            <form action="/" method="POST">
+                              {%csrf_token%}
+                              <input hidden type="text" name="cart" value="{{ n.id }}">
+                              <input style="color: aliceblue; border-width: 0px; background-color:rgb(0,0,0,0)" type="submit" href="index.html" value="Add to Cart">
+                            </form>
                           </h4>
                         </div>
                       </a>
@@ -99,7 +103,7 @@
         </div>
 
         </section>
-        {% include 'login.html' %}
+        
       </section>
       <!-- End Product Section -->
     </main>

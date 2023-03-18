@@ -18,17 +18,22 @@ from django.urls import path
 from Smithem import views
 from django.conf import settings
 from django.conf.urls.static import static
+from .login import Login
+from .signup import Signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePage),
-    path('anvil/',views.Anvil),
+    path('anvil/',views.Anvil,name="anvil"),
     path('about/',views.About),
     path('features/',views.Features),
     path('contact/',views.Contact),
     path('sell/',views.Sell),
+    path('signup/',Signup.as_view(),name="signup"),
     path('saveenquiry/',views.saveEnquiry,name="saveenquiry"),
     path('savepro/',views.savePro,name="savepro"),
+    path('login/',Login.as_view(),name="login"),
+    
 ]
 
 if settings.DEBUG:

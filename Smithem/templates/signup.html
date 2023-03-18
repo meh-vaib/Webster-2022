@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Smit 'em</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/flickity/flickity.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
+
+  <link href="../static/css/style.css" rel="stylesheet">
+  
+</head>
+
+<body class="main">
+    {% include "header.html" %}
+    <div><br></div>
+    <div class="d-flex justify-content-center" style="color:rgb(224, 79, 0)"><h1>Join Us</h1></div><hr>
+        {%if error%}
+        <div class=" d-flex justify-content-center alert alert-danger" role="alert">{{error}}</div>
+        {%endif%}
+        <div class="d-flex justify-content-center">
+        <form action="{% url 'signup' %}" method="POST" class="w-50">
+        {% csrf_token %}
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+        <input required type="text" name="username" placeholder="Username" class="form-control" />
+        </div>
+  
+        <!-- Number input -->
+        <div class="form-outline mb-4">
+          <input required type="tel" name="phone" placeholder="Number"  class="form-control" />
+          </div>
+  
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+        <input required type="email" name="email" placeholder="Email Address"  class="form-control" />
+        </div>
+    
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+        <input required type="password" placeholder="Password" name="password" class="form-control" />
+        </div>
+  
+        <!-- Confirm-Password input -->
+        <div class="form-outline mb-4">
+        <input required type="password" name="repassword" placeholder="Confirm Password" class="form-control" />
+        </div>
+  
+        <!-- Register button -->
+        <input type="submit" class="btn w-100 btn-primary btn-block mb-4">
+                
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    {% include "footer.html" %}
+  
+    
+</body>
+
+</html>
