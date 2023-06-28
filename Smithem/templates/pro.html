@@ -1,3 +1,4 @@
+{% load cart %}
 <div class="modal fade" id="modal{{n.id}}" tabindex="-1" role="dialog" aria-labelledby="big1label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="pd modal-content">
@@ -33,11 +34,31 @@
           </div>
         </div>
 
-        <div class="modal-footer">
-          <form action="/" method="POST" name="cart">
-            <input type="text" value="{{Product.id}}">
-            <button type="submit" class="size btn btn-secondary" data-bs-dismiss="modal">Add to Cart</button>
-          </form>
+        <div class="modal-footer border-0">
+
+            {% if n|is_in_cart:request.session.cart %}
+            <div style="display:flex">
+            <form action="{% url 'anvil' %}" method="POST">
+              {% csrf_token %}
+              <input type="text" hidden name="proid" value="{{n.id}}">
+              <input type="text" hidden name="remove" value="True">
+              <input type='submit' name="decrease" value="-" class="size btn btn-secondary">
+            </form>
+            <div class="text-center p-2 "> {{n|cart_quantity:request.session.cart}} in Cart</div>
+            <form action="{% url 'anvil' %}" method="POST">
+              {% csrf_token %}
+              <input type="text" hidden name="proid" value="{{n.id}}">
+              <input type='submit' name="increase" value="+" class="size btn btn-secondary">
+            </form>
+            </div>
+
+            {% else %}
+            <form action="{% url 'anvil' %}" method="POST">
+              {% csrf_token %}
+              <input type="text" hidden name="proid" value="{{n.id}}">
+              <input type="submit" value=" Add To Cart " class="size btn btn-secondary" data-bs-dismiss="modal"> 
+            </form>
+            {% endif %}
           <button type="submit" class="size btn btn-primary">Buy</button>
         </div>
       </div>

@@ -32,8 +32,12 @@ class Login(View):
 
         
         if not error:
-            request.session['customer_id']=obj.id
-            request.session['email']=obj.email
+            request.session['customer']=obj.id
+            
             return render(request,'index.html')
         else:
             return render(request,'login.html',{'error':error})
+
+def logout(request):
+    request.session.clear()
+    return redirect('home')

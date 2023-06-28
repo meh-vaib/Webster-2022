@@ -32,8 +32,14 @@
           </li>
           <li><a class="nav-link scrollto {% if request.path == '/contact/' %} active {%endif%}" href="/contact">Contact</a></li>
           <li><a class="nav-link scrollto {% if request.path == '/sell/' %} active {% endif %}" href="/sell">Sell</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/cart">Cart</a></li>
+          {% if request.session.customer %}
+          <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/orders">Orders</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/logout">logOut</a></li>
+          {% else %}
           <li><a class="nav-link scrollto {% if request.path == '/login/' %} active {% endif %}" href="/login">LogIn</a></li>
           <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/signup">SignUp</a></li>
+          {% endif %}
           <li><div style="padding-left: 5% ;"class="input-group">
             <form method="get">
             <input type="text" name="product" value="" label="Search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
