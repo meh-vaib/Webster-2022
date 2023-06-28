@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Smit 'em</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
+
+  <link href="../static/css/style.css" rel="stylesheet">
+  
+</head>
+
+ 
+<body class="main">
+    {% include "header.html" %}
+    <main id="main">
+        <!-- ======= Contact Section ======= -->
+    <section id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <br><h2 class="section-title">Contact Us</h2><hr>
+            </div>
+          </div>
+  
+          <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-4">
+              <div  class="info">
+                <div>
+                  <i class="bi bi-geo-alt"></i>
+                  <p style="color: white;">MNNIT Teliarganj<br>Prayagraj</p>
+                </div>
+  
+                <div>
+                  <i class="bi bi-envelope"></i>
+                  <p style="color: white;">info@example.com</p>
+                </div>
+  
+                <div>
+                  <i class="bi bi-phone"></i>
+                  <p style="color: white;">+91 0000000000</p>
+                </div>
+  
+              </div>
+            </div>
+             
+            <div class="col-lg-5 col-md-8">
+              <div class="form">
+                <form action="{% url 'saveenquiry' %}" id="contact" method="post" role="form" nonvalidate="nonvalidate" class="bv-form">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  </div><br>
+                  {% comment %} <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div> {% endcomment %}
+                  <div class="text-center"><button class="btn" style="border-radius:4px; " type="submit">Send Message</button></div>
+                </form>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </section><!-- End Contact Section -->
+      
+    </main>
+    {% include 'footer.html' %}
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</body>
+</html>

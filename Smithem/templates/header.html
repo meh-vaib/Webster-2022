@@ -1,0 +1,57 @@
+
+    <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div id="logo" class="me-auto">
+        {% comment %} <a href="index.html"><img src="../static/img/logo-nav.png" alt=""></a> {% endcomment %}
+        
+        <h1><a href="#hero">Smith 'em!</a></h1>        
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto {% if request.path == '/' %} active {% endif %}" href="/">Home</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/about/' %} active {% endif %}" href="/about">About</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/features/' %} active {% endif %}" href="/features">Features</a></li>
+          
+          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/anvil/">Anvils</a></li>
+              <li class="dropdown"><a href="#"><span>Hammers</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Cross Pin</a></li>
+                  <li><a href="#">Square Pin</a></li>
+                  <li><a href="#">Round Pin</a></li>
+                </ul>
+              </li>
+              <li><a href="/nuts">Nuts</a></li>
+              <li><a href="/chains">Chains</a></li>
+              <li><a href="/misc">Misc</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto {% if request.path == '/contact/' %} active {%endif%}" href="/contact">Contact</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/sell/' %} active {% endif %}" href="/sell">Sell</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/cart">Cart</a></li>
+          {% if request.session.customer %}
+          <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/orders">Orders</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/logout">logOut</a></li>
+          {% else %}
+          <li><a class="nav-link scrollto {% if request.path == '/login/' %} active {% endif %}" href="/login">LogIn</a></li>
+          <li><a class="nav-link scrollto {% if request.path == '/signup/' %} active {% endif %}" href="/signup">SignUp</a></li>
+          {% endif %}
+          <li><div style="padding-left: 5% ;"class="input-group">
+            <form method="get">
+            <input type="text" name="product" value="" label="Search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            
+          </form>
+          </div></li>
+            
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+    
+  </header><!-- End Header -->
+    

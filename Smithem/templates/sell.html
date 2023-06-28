@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Smit 'em</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/flickity/flickity.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
+
+  <link href="../static/css/style.css" rel="stylesheet">
+  
+</head>
+
+<body class="main">
+    {% include "header.html" %}
+    <div><br></div>
+    <div class="d-flex justify-content-center" style="color:rgb(224, 79, 0)"><h1>Sell Your Product!</h1></div><hr>
+
+    <!-- FORM -->
+    <div class="d-flex justify-content-center">
+    <form action="{% url 'savepro' %}" method="post" enctype="multipart/form-data" role="form" nonvalidate="nonvalidate" class="w-50" id="sell" style="color:aliceblue;">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="productname" class="form-label">Name</label>
+          <input type="text" name="name" class="form-control" id="productname" aria-describedby="nameHelp" required>
+          <div id="nameHelp" class="form-text">Please make the name concise</div>
+        </div>
+        <div class="mb-3">
+            <label for="productdes" class="form-label">Description</label>
+            <input type="text" name="des" class="form-control" id="productdes" aria-describedby="desHelp" required>
+            <div id="desHelp" class="form-text">Please enter valid description like manufacturing details,etc </div>
+        </div>
+        <div class="mb-3">
+            <label for="productprice" class="form-label">Price</label>
+            <input type="text" name="price" class="form-control" id="productprice" aria-describedby="priceHelp" required>
+        </div>
+        <div class="mb-3">
+          <label for="productimg" class="form-label">Upload Primary Picture</label>
+          <input type="file" name="image" accept="image/*" class="form-control" id="productprimaryimg" aria-describedby="imgHelp" required>
+      </div>
+        <div class="mb-3">
+            <label for="productcat" name="cat" class="form-label">Category</label>
+            <select class="form-select form-control" id="productcat" aria-describedby="catHelp">
+                <option value="anvil">Anvils</option>
+                <option value="hammer">Hammers</option>
+                <option value="nuts">Nuts</option>
+                <option value="chains">Chains</option>
+                <option selected>Misc</option>
+            </select>
+            
+          </div>
+        
+        <br>
+        <button style="border-radius: 4px; padding: auto;" type="submit" class="btn ">Submit</button>
+      </form>
+    </div>
+    <!-- FORM -->
+
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    {% include "footer.html" %}
+  
+   
+</body>
+
+</html>
