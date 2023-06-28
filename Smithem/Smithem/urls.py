@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 from .login import Login, logout
 from .signup import Signup
 from .anvil import Anvil
+from .cart import Cart
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePage,name="home"),
@@ -34,7 +36,7 @@ urlpatterns = [
     path('savepro/',views.savePro,name="savepro"),
     path('login/',Login.as_view(),name="login"),
     path('logout/',logout,name="logout"),
-    
+    path('cart/',Cart.as_view(),name="cart")
 ]
 
 if settings.DEBUG:

@@ -7,6 +7,8 @@ class Product(models.Model):
     product_des=models.TextField()
     product_img=models.FileField(upload_to="product/",max_length=250,null=True,default=None)
 
-
+    @staticmethod
+    def get_products_by_ids(ids):
+        return Product.objects.filter(id__in=ids)
 
 # Create your models here.
