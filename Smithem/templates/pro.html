@@ -42,13 +42,13 @@
               {% csrf_token %}
               <input type="text" hidden name="proid" value="{{n.id}}">
               <input type="text" hidden name="remove" value="True">
-              <input type='submit' name="decrease" value="-" class="size btn btn-secondary">
+              <input type='submit' style="border-radius:10px; background:rgb(54, 27, 3)" name="decrease" value="-" class="size btn btn-secondary">
             </form>
             <div class="text-center p-2 "> {{n|cart_quantity:request.session.cart}} in Cart</div>
             <form action="{% url 'anvil' %}" method="POST">
               {% csrf_token %}
               <input type="text" hidden name="proid" value="{{n.id}}">
-              <input type='submit' name="increase" value="+" class="size btn btn-secondary">
+              <input type='submit' style="border-radius:10px; background:rgb(54, 27, 3)" name="increase" value="+" class="size btn btn-secondary">
             </form>
             </div>
 
@@ -56,10 +56,10 @@
             <form action="{% url 'anvil' %}" method="POST">
               {% csrf_token %}
               <input type="text" hidden name="proid" value="{{n.id}}">
-              <input type="submit" value=" Add To Cart " class="size btn btn-secondary" data-bs-dismiss="modal"> 
+              <input type="submit" style="border-radius:10px; background:rgb(54, 27, 3)" value=" Add To Cart " class="size btn btn-secondary" data-bs-dismiss="modal"> 
             </form>
             {% endif %}
-          <button type="submit" class="size btn btn-primary">Buy</button>
+          <button type="submit" style="border-radius:10px; background:rgb(54, 27, 3)" class="size btn btn-primary">Buy</button>
         </div>
       </div>
     </div>

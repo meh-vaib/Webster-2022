@@ -15,6 +15,41 @@ class Cart(View):
     def get(self,request):
         ids=list(request.session.get('cart').keys())
         products=Product.get_products_by_ids(ids)
-        print(products)
-        return render(request,'cart.html', {'products':products})
+        total_price=0
+        cart=request.session.get('cart')
+        print(cart)
+        for p in products:
+            print(cart.get(str(p.id)))
+            total_price+=(p.product_price)*(cart.get(str(p.id)))
+
+        data={
+            'products':products,
+            'total_price':total_price
+        }
+        return render(request,'cart.html',data)
+    
+    def post(self,request):
+        proid=request.POST.get('proid')
+        remove=request.POST.get('remove')
+        cart=request.session.get('cart')
+        if proid:
+            if cart:
+                quantity=cart.get(proid)
+                if quantity:
+                    if remove:
+                        if quantity<=1:
+                            cart.pop(proid)
+                        else:
+                            cart[proid]=quantity-1
+                    else:
+                        cart[proid]=quantity+1
+                else:
+                    cart[proid]=1
+            else:
+                cart={}
+                cart[proid]=1
+            request.session['cart']=cart
+            print(cart)
+
+        return redirect('cart')
     

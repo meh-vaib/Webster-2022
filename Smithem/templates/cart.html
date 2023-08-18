@@ -1,121 +1,155 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
     <title>Smit 'em</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
-
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet" />
-
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900"
+          rel="stylesheet" />
     <!-- Vendor CSS Files -->
-
-    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css"
+          rel="stylesheet" />
     <!-- <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"> -->
-
     <link href="../static/css/style.css" rel="stylesheet" />
     <link href="../static/css/prostyle.css" rel="stylesheet" />
   </head>
   {% load cart %}
   <body class="main">
     {% include 'header.html' %}
-    
     <main id="main">
       <div style="color:white ;" class="text-center">
-        <h1 style="padding:5px;">Your Cart<hr /></h1>
+        <h1 style="padding:5px;">
+          Your Cart
+          <hr />
+        </h1>
       </div>
       <!-- ======= Product Section ======= -->
-
-      <section class="about" id="about">
-        <section class="team" id="team">
-          <div class="h-100 d-flex align-items-center justify-content-center container">
-            <div class="row">
-              {% for n in products %}
-                  <div  class="d-flex align-items-center col-lg-3 col-sm-4 col-xs-6">
-                    <div id="{{n.id}}" class="card card-block">
-                      <a href="#">
-                        {% if n.product_img != Null %}
-                        <img alt=""  class=" team-img" src="/media/{{ n.product_img }}" />
-                        {% endif %}
-                        {% if n.product_img == Null %}
-                        <img alt="" class=" team-img"  src="/media/product/sample.jpg" />
-                        {% endif %}
-                        <div style="padding-left:2px; padding-right: 2px;" class="text-center card-title-wrap">
-                          <span type="button" style="font-size: 20px; " class="card-title" data-bs-toggle="modal" data-bs-target="#modal{{ n.id }}">{{ n.product_name }}</span>
-                          <span class="card-text">{{ n.product_price }}</span>
+        <section class=" m-0 p-0 about team" id="team">
+          <br>
+            <div class="m-0 p-0 row">
+              <div class=" text-center align-items-center justify-content-center col-lg-8 col-sm-6 col-xs-12">
+                {% for n in products %}
+                  <div class="card mb-3"
+                       style="max-width: 540px;
+                              background-color:rgb(17, 17, 17)">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        {% if n.product_img != Null %}<img alt=""  class=" team-img" src="/media/{{ n.product_img }}" />{% endif %}
+                        {% if n.product_img == Null %}<img alt="" class=" team-img"  src="/media/product/sample.jpg" />{% endif %}
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ n.product_name }}</h5>
+                          <p class="card-text">{{ n.product_price }}</p>
+                          {% if n|is_in_cart:request.session.cart %}
+                            <div class="text-center align-items-center justify-content-center" style="display:flex">
+                              <form action="{% url 'cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" hidden name="proid" value="{{ n.id }}">
+                                <input type="text" hidden name="remove" value="True">
+                                <input type='submit'
+                                       name="decrease"
+                                       value="-"
+                                       style="border-radius:10px; background:rgb(54, 27, 3)"
+                                       class="p-2 size btn btn-secondary">
+                              </form>
+                              <div class="text-center p-2 ">{{ n|cart_quantity:request.session.cart }} in Cart</div>
+                              <form action="{% url 'cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" hidden name="proid" value="{{ n.id }}">
+                                <input type='submit'
+                                       name="increase"
+                                       value="+"
+                                       style="border-radius:10px;background:rgb(54, 27, 3)"
+                                       class="p-2 size btn btn-secondary">
+                              </form>
+                            </div>
+                          {% endif %}
                         </div>
-                        
-                        <div class="team-over">
-                          <h4 class="hidden-md-down">
-                            <a style="color: aliceblue;" href="index.html">Buy Now</a><br />
-                            <form action="/" method="POST">
-                              {%csrf_token%}
-                              <input hidden type="text" name="cart" value="{{ n.id }}">
-                              <input style="color: aliceblue; border-width: 0px; background-color:rgb(0,0,0,0)" type="submit" href="index.html" value="Add to Cart">
-                            </form>
-                          </h4>
-                        </div>
-                      </a>
-                    </div>  
+                      </div>
+                    </div>
                   </div>
-
-                  <!-- Modal -->
-                   {% include 'pro.html' %} 
-              <!-- Modal -->
-              {% empty %}   
-              <div class="text-center"><h2>Opps... <br> Couldn't find what you were looking for ;(</h2></div>
-              <br><br>
-              {% endfor %}
-              
+                {% endfor %}
+                {% if not products %}
+                <h2>Your Cart is Empty</h2>
+                {% endif %}
+              </div>
+              <div class=" text-center col-lg-4 col-sm-6 col-xs-12" style="padding:">
+                
+                <h2>Pricing Details</h2>
+                <h4>Total Price: {{total_price}}</h4>
+    
+              </div>
             </div>
+          
+          <br />
+          <br />
+          <div class="d-flex justify-content-center">
+            <nav aria-label="...">
+              <ul class="list-inline pagination">
+                <li class="list-inline-item page-item">
+                  <a style="color:white;
+                            background:rgb(17, 17, 17);
+                            border:0"
+                     class="learn page-link"
+                     href="/anvil/?page=1"
+                     tabindex="-1"
+                     aria-disabled="true">First</a>
+                </li>
+                {% if productData.has_previous %}
+                  <li class="page-item">
+                    <a style="color:white;
+                              background:rgb(17, 17, 17);
+                              border:0"
+                       class="page-link"
+                       href="/anvil/?page={{ productData.previous_page_number }}"
+                       tabindex="-1"
+                       aria-disabled="true">Previous</a>
+                  </li>
+                {% endif %}
+                {% for n in totalpagelist %}
+                  <li class="page-item" aria-current="page">
+                    <a style="color:white;
+                              background:rgb(17, 17, 17);
+                              border:0"
+                       class="page-link"
+                       href="/anvil/?page={{ n }}">{{ n }}</a>
+                  </li>
+                {% endfor %}
+                {% if productData.has_next %}
+                  <li class="page-item">
+                    <a style="color:white;
+                              background:rgb(17, 17, 17);
+                              border:0"
+                       class="page-link"
+                       href="/anvil/?page={{ productData.next_page_number }}">Next</a>
+                  </li>
+                {% endif %}
+                <li class="page-item">
+                  <a style="color:white;
+                            background:rgb(17, 17, 17);
+                            border:0"
+                     class="page-link"
+                     href="/anvil/?page={{ totalpages }}"
+                     tabindex="-1"
+                     aria-disabled="true">Last</a>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <br><br>
-          <div class=" d-flex justify-content-center">
-          <nav aria-label="...">
-            <ul class="list-inline pagination" >
-              <li class=" list-inline-item page-item ">
-                <a style="color:white; background:rgb(17, 17, 17); border:0;" class=" learn page-link " href="/anvil/?page=1" tabindex="-1" aria-disabled="true">First</a>
-              </li>
-              {% if productData.has_previous %}
-              <li class="page-item ">
-                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{productData.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a>
-              </li>
-              {% endif %}
-              
-              {% for n in totalpagelist %}
-              <li class="page-item" aria-current="page">
-                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{n}}">{{n}}</a>
-              </li>
-              {% endfor %}
-
-              {% if productData.has_next %}
-              <li class="page-item">
-                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{productData.next_page_number}}">Next</a>
-              </li>
-              {% endif %}
-              <li class="page-item">
-                <a style="color:white; background:rgb(17, 17, 17); border:0;" class="page-link " href="/anvil/?page={{totalpages}}" tabindex="-1" aria-disabled="true">Last</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
         </section>
-        
-      </section>
+
       <!-- End Product Section -->
     </main>
     <!-- End #main -->
-
     {% include 'footer.html' %}
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#"
+       class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   </body>
 </html>
-
 {% comment %} <section class="about" id="about"></section> {% endcomment %}
